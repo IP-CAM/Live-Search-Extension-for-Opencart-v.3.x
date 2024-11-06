@@ -132,7 +132,7 @@
       this.response = function (json) {
         var html = "";
         var query = $(element).val();
-        var url_more = $('base').attr('href') + 'index.php?route=product/search&language=' + $dropdown.attr('data-lang') + '&search=' + encodeURIComponent(query);
+        var url_more = $('base').attr('href') + 'index.php?route=product/search&search=' + encodeURIComponent(query);
 
         html += '<li><span class="ps-live-search-subheader">' + this.translations.text_showing_results.replace('%search%', query) + '</span></li>';
 

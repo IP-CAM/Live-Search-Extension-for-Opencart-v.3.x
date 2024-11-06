@@ -39,7 +39,6 @@ code package and also available on the project page: https://github.com/playfuls
                 $data['text_all_results'] = $ps_language->get('text_all_results');
                 $data['text_no_results'] = $ps_language->get('text_no_results');
 
-                $data['language'] = $this->config->get('config_language');
                 $data['input_delay'] = $this->config->get('module_ps_live_search_input_delay');
                 $data['input_min_chars'] = $this->config->get('module_ps_live_search_input_min_chars');
             ]]></add>
@@ -61,7 +60,7 @@ code package and also available on the project page: https://github.com/playfuls
         <operation>
             <search><![CDATA[</div>]]></search>
             <add position="before"><![CDATA[
-            <ul id="ps-live-search" class="ps-live-search-list" data-lang="{{ language }}"></ul>
+            <ul id="ps-live-search" class="ps-live-search-list"></ul>
             <script>
                 $('#ps-live-search-input').pslivesearch({
                     'source': function (request, response) {
