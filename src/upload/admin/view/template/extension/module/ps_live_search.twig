@@ -1,0 +1,314 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-module" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module" class="form-horizontal">
+
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+            <li><a href="#tab-products" data-toggle="tab">{{ tab_products }}</a></li>
+            <li><a href="#tab-categories" data-toggle="tab">{{ tab_categories }}&nbsp;&nbsp;<svg class="icon icon-pro-feature" aria-hidden="true" width="29" height="14"><use xlink:href="#icon-pro-feature"></use></svg></a></li>
+            <li><a href="#tab-manufacturers" data-toggle="tab">{{ tab_manufacturers }}&nbsp;&nbsp;<svg class="icon icon-pro-feature" aria-hidden="true" width="29" height="14"><use xlink:href="#icon-pro-feature"></use></svg></a></li>
+            <li><a href="#tab-informations" data-toggle="tab">{{ tab_informations }}&nbsp;&nbsp;<svg class="icon icon-pro-feature" aria-hidden="true" width="29" height="14"><use xlink:href="#icon-pro-feature"></use></svg></a></li>
+            <li><a href="#tab-support" data-toggle="tab">{{ tab_help_and_support }}</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab-general">
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_status" id="input-status" class="form-control">
+										{% if module_ps_live_search_status %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-input-delay">{{ entry_input_delay }}</label>
+                <div class="col-sm-10">
+                  <input type="text" name="module_ps_live_search_input_delay" value="{{ module_ps_live_search_input_delay }}" placeholder="{{ entry_input_delay }}" id="input-input-delay" class="form-control" />
+									{% if error_input_delay %}
+									<div class="text-danger">{{ error_input_delay }}</div>
+									{% endif %}
+									<div class="help-block text-muted">{{ help_input_delay }}</div>
+                </div>
+              </div>
+
+							<div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-input-min-chars">{{ entry_input_min_chars }}</label>
+                <div class="col-sm-10">
+                  <input type="text" name="module_ps_live_search_input_min_chars" value="{{ module_ps_live_search_input_min_chars }}" placeholder="{{ entry_input_min_chars }}" id="input-input-min-chars" class="form-control" />
+									{% if error_input_min_chars %}
+									<div class="text-danger">{{ error_input_min_chars }}</div>
+									{% endif %}
+									<div class="help-block text-muted">{{ help_input_min_chars }}</div>
+                </div>
+              </div>
+
+            </div>
+						<div class="tab-pane" id="tab-products">
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-product-status">{{ entry_product_status }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_product_status" id="input-product-status" class="form-control">
+										{% if module_ps_live_search_product_status %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-product-description">{{ entry_product_description }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_product_description" id="input-product-description" class="form-control">
+										{% if module_ps_live_search_product_description %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-product-description-length">{{ entry_product_description_length }}</label>
+                <div class="col-sm-10">
+                  <input type="text" name="module_ps_live_search_product_description_length" value="{{ module_ps_live_search_product_description_length }}" placeholder="{{ entry_product_description_length }}" id="input-product-description-length" class="form-control" />
+									{% if error_product_description_length %}
+									<div class="text-danger">{{ error_product_description_length }}</div>
+									{% endif %}
+									<div class="help-block text-muted">{{ help_product_description_length }}</div>
+                </div>
+              </div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-product-image">{{ entry_product_image }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_product_image" id="input-product-image" class="form-control">
+										{% if module_ps_live_search_product_image %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group required">
+								<label class="col-sm-2 control-label" for="input-product-image-width">{{ entry_product_image_size }}</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-6">
+											<input type="text" name="module_ps_live_search_product_image_width" value="{{ module_ps_live_search_product_image_width }}" placeholder="{{ entry_width }}" id="input-product-image-width" class="form-control" />
+											{% if error_product_image_width %}
+											<div class="text-danger">{{ error_product_image_width }}</div>
+											{% endif %}
+										</div>
+										<div class="col-sm-6">
+											<input type="text" name="module_ps_live_search_product_image_height" value="{{ module_ps_live_search_product_image_height }}" placeholder="{{ entry_height }}" class="form-control" />
+											{% if error_product_image_height %}
+											<div class="text-danger">{{ error_product_image_height }}</div>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="tab-pane" id="tab-categories">
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-category-status">{{ entry_category_status }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_category_status" id="input-category-status" disabled class="form-control">
+										{% if module_ps_live_search_category_status %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-category-image">{{ entry_category_image }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_category_image" id="input-category-image" disabled class="form-control">
+										{% if module_ps_live_search_category_image %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group required">
+								<label class="col-sm-2 control-label" for="input-category-image-width">{{ entry_category_image_size }}</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-6">
+											<input type="text" name="module_ps_live_search_category_image_width" value="{{ module_ps_live_search_category_image_width }}" placeholder="{{ entry_width }}" id="input-category-image-width" disabled class="form-control" />
+											{% if error_category_image_width %}
+											<div class="text-danger">{{ error_category_image_width }}</div>
+											{% endif %}
+										</div>
+										<div class="col-sm-6">
+											<input type="text" name="module_ps_live_search_category_image_height" value="{{ module_ps_live_search_category_image_height }}" placeholder="{{ entry_height }}" disabled class="form-control" />
+											{% if error_category_image_height %}
+											<div class="text-danger">{{ error_category_image_height }}</div>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="tab-pane" id="tab-manufacturers">
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-manufacturer-status">{{ entry_manufacturer_status }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_manufacturer_status" id="input-manufacturer-status" disabled class="form-control">
+										{% if module_ps_live_search_manufacturer_status %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-manufacturer-image">{{ entry_manufacturer_image }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_manufacturer_image" id="input-manufacturer-image" disabled class="form-control">
+										{% if module_ps_live_search_manufacturer_image %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group required">
+								<label class="col-sm-2 control-label" for="input-manufacturer-image-width">{{ entry_manufacturer_image_size }}</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-6">
+											<input type="text" name="module_ps_live_search_manufacturer_image_width" value="{{ module_ps_live_search_manufacturer_image_width }}" placeholder="{{ entry_width }}" id="input-manufacturer-image-width" disabled class="form-control" />
+											{% if error_manufacturer_image_width %}
+											<div class="text-danger">{{ error_manufacturer_image_width }}</div>
+											{% endif %}
+										</div>
+										<div class="col-sm-6">
+											<input type="text" name="module_ps_live_search_manufacturer_image_height" value="{{ module_ps_live_search_manufacturer_image_height }}" placeholder="{{ entry_height }}" disabled class="form-control" />
+											{% if error_manufacturer_image_height %}
+											<div class="text-danger">{{ error_manufacturer_image_height }}</div>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="tab-pane" id="tab-informations">
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-information-status">{{ entry_information_status }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_information_status" id="input-information-status" disabled class="form-control">
+										{% if module_ps_live_search_information_status %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
+						</div>
+						<div class="tab-pane" id="tab-support">
+
+							<h3>{{ heading_getting_started }}</h3>
+							{{ text_getting_started }}
+							<hr />
+							<h3>{{ heading_setup }}</h3>
+							{{ text_setup }}
+							<hr />
+							<h3>{{ heading_troubleshot }}</h3>
+							{{ text_troubleshot }}
+							<hr />
+							<h3>{{ heading_faq }}</h3>
+							{{ text_faq }}
+							<hr />
+							<h3>{{ heading_contact }}</h3>
+							{{ text_contact }}
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<svg aria-hidden="true" overflow="hidden" style="position:absolute;width:0;height:0">
+	<defs>
+			<symbol id="icon-pro-feature" viewBox="0 0 29.9 14">
+				<path fill="#262626" d="M28.1 14H1.8c-1 0-1.8-.8-1.8-1.8V1.8C0 .8.8 0 1.8 0H28c1 0 1.8.8 1.8 1.8v10.3c.1 1.1-.7 1.9-1.7 1.9"/>
+				<path fill="#FFF" d="M10.4 6.9c-.2.3-.4.6-.8.8s-.8.3-1.4.3h-1v2.4H5.6V3.7h2.6c.5 0 1 .1 1.3.3.4.2.6.4.8.8.2.3.3.7.3 1.1.1.3 0 .7-.2 1m-1.6-.5c.2-.1.2-.3.2-.6 0-.2 0-.4-.2-.6-.1-.1-.4-.2-.7-.2h-.9v1.7h.9c.3 0 .6-.1.7-.3M14.9 10.4l-1.4-2.5h-.4v2.5h-1.6V3.7h2.7c.5 0 1 .1 1.3.3.4.2.6.4.8.8.2.3.3.7.3 1.1s-.1.8-.4 1.2c-.3.3-.6.6-1.1.7l1.5 2.6zm-1.7-3.7h1c.3 0 .5-.1.7-.2.1-.1.2-.4.2-.6 0-.3-.1-.5-.2-.6s-.4-.3-.7-.3h-1zM19.2 10q-.75-.45-1.2-1.2c-.3-.5-.5-1.1-.5-1.8s.2-1.2.5-1.8q.45-.75 1.2-1.2c.5-.3 1.1-.4 1.7-.4s1.2.1 1.7.4q.75.45 1.2 1.2c.3.5.5 1.1.5 1.8s-.2 1.2-.5 1.8q-.45.75-1.2 1.2c-.5.3-1.1.4-1.7.4s-1.2-.1-1.7-.4m3-1.6c.3-.4.4-.8.4-1.4s-.2-1.1-.5-1.4c-.3-.4-.7-.5-1.3-.5-.5 0-1 .2-1.3.5S19 6.4 19 7s.2 1.1.5 1.4c.3.4.7.5 1.3.5s1-.1 1.4-.5"/>
+			</symbol>
+	</defs>
+</svg>
+{{ footer }}

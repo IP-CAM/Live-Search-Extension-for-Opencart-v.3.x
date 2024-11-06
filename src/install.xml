@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is part of "Playful Sparkle - Live Search" project and subject to the terms
+and conditions defined in file "LICENSE", which is part of this source
+code package and also available on the project page: https://github.com/playfulsparkle/oc3_live_search.git
+-->
+<modification>
+    <name>Playful Sparkle - Live Search</name>
+    <code>ps_live_search</code>
+    <version>1.0.0</version>
+    <author>Playful Sparkle</author>
+    <link>https://github.com/playfulsparkle/oc3_live_search.git</link>
+    <file path="catalog/controller/common/header.php">
+        <operation>
+            <search><![CDATA[$this->config->get('config_name');]]></search>
+            <add position="after"><![CDATA[
+                $script = 'catalog/view/javascript/ps_live_search.js';
+                $style = 'catalog/view/theme/default/stylesheet/ps_live_search.css';
+
+                $data['scripts'][$script] = $script;
+                $data['styles'][$style] = [
+                    'href' => $style,
+                    'rel' => 'stylesheet',
+                    'media' => 'screen'
+                ];
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/common/search.php">
+        <operation>
+            <search><![CDATA[$this->language->get('text_search');]]></search>
+            <add position="after"><![CDATA[
+                $this->load->language('extension/module/ps_live_search', 'ps_live_search');
+
+                $ps_language = $this->language->get('ps_live_search');
+
+                $data['heading_products'] = $ps_language->get('heading_products');
+                $data['text_showing_results'] = $ps_language->get('text_showing_results');
+                $data['text_all_results'] = $ps_language->get('text_all_results');
+                $data['text_no_results'] = $ps_language->get('text_no_results');
+
+                $data['language'] = $this->config->get('config_language');
+                $data['input_delay'] = $this->config->get('module_ps_live_search_input_delay');
+                $data['input_min_chars'] = $this->config->get('module_ps_live_search_input_min_chars');
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/default/template/common/search.twig">
+        <operation>
+            <search position="after"><![CDATA[<div id="search" class="]]></search>
+            <add><![CDATA[<div id="search" class="ps-live-search-container ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/default/template/common/search.twig">
+        <operation>
+            <search position="after"><![CDATA[<input type="text" name="search"]]></search>
+            <add><![CDATA[<input type="text" name="search" id="ps-live-search-input" data-live-search-target="ps-live-search"]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/default/template/common/search.twig">
+        <operation>
+            <search><![CDATA[</div>]]></search>
+            <add position="before"><![CDATA[
+            <ul id="ps-live-search" class="ps-live-search-list" data-lang="{{ language }}"></ul>
+            <script>
+                $('#ps-live-search-input').pslivesearch({
+                    'source': function (request, response) {
+                        $.ajax({
+                            url: 'index.php?route=extension/module/ps_live_search/autocomplete&search=' + encodeURIComponent(request),
+                            dataType: 'json',
+                            success: function (json) {
+                                response(json);
+                            }
+                        });
+                    },
+                    'select': function (item) {
+                        $('#ps-live-search-input').val(request);
+                    },
+                    'translations': {
+                        'heading_products': '{{ heading_products }}',
+                        'text_showing_results': '{{ text_showing_results }}',
+                        'text_all_results': '{{ text_all_results }}',
+                        'text_no_results': '{{ text_no_results }}',
+                    },
+                    'options': {
+                        'input_delay': {{ input_delay | default(100) }},
+                        'input_min_chars': {{ input_min_chars | default(1) }}
+                    }
+                });
+            </script>
+            ]]></add>
+        </operation>
+    </file>
+</modification>
