@@ -107,7 +107,7 @@ class ControllerExtensionModulePsLiveSearch extends Controller
                 }
 
                 $json['manufacturers']['data'][] = [
-                    'href' => $this->url->link('product/manufacturer.info', 'manufacturer_id=' . $manufacturerResult['manufacturer_id']),
+                    'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $manufacturerResult['manufacturer_id']),
                     'name' => $manufacturerResult['name'],
                     'thumb' => $thumb,
                     'thumb_width' => $this->config->get('module_ps_live_search_manufacturer_image_width'),
