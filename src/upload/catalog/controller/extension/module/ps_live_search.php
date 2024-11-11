@@ -53,7 +53,7 @@ class ControllerExtensionModulePsLiveSearch extends Controller
                     $description = '';
                 }
 
-                $json['products']['data'][] = [
+                $json['products']['data'][] = array(
                     'href' => str_replace('&amp;', '&', $this->url->link('product/product', 'product_id=' . $productResult['product_id'])),
                     'name' => strip_tags($productResult['name']),
                     'description' => $description,
@@ -63,7 +63,7 @@ class ControllerExtensionModulePsLiveSearch extends Controller
                     'thumb' => $thumb,
                     'thumb_width' => $this->config->get('module_ps_live_search_product_image_width'),
                     'thumb_height' => $this->config->get('module_ps_live_search_product_image_height'),
-                ];
+                );
             }
         }
 

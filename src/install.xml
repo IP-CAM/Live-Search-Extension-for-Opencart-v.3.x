@@ -18,11 +18,11 @@ code package and also available on the project page: https://github.com/playfuls
                 $style = 'catalog/view/theme/default/stylesheet/ps_live_search.css';
 
                 $data['scripts'][$script] = $script;
-                $data['styles'][$style] = [
+                $data['styles'][$style] = array(
                     'href' => $style,
                     'rel' => 'stylesheet',
                     'media' => 'screen'
-                ];
+                );
             ]]></add>
         </operation>
     </file>
@@ -67,6 +67,7 @@ code package and also available on the project page: https://github.com/playfuls
                         $.ajax({
                             url: 'index.php?route=extension/module/ps_live_search/autocomplete&search=' + encodeURIComponent(request),
                             dataType: 'json',
+                            cache: false,
                             success: function (json) {
                                 response(json);
                             }
