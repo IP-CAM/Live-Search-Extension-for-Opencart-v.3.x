@@ -38,7 +38,7 @@
             <div class="tab-pane active" id="tab-general">
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+								<label for="input-status" class="col-sm-2 control-label">{{ entry_status }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_status" id="input-status" class="form-control">
 										{% if module_ps_live_search_status %}
@@ -53,23 +53,19 @@
 							</div>
 
 							<div class="form-group required">
-                <label class="col-sm-2 control-label" for="input-input-delay">{{ entry_input_delay }}</label>
+                <label for="input-input-delay" class="col-sm-2 control-label">{{ entry_input_delay }}</label>
                 <div class="col-sm-10">
                   <input type="text" name="module_ps_live_search_input_delay" value="{{ module_ps_live_search_input_delay }}" placeholder="{{ entry_input_delay }}" id="input-input-delay" class="form-control" />
-									{% if error_input_delay %}
-									<div class="text-danger">{{ error_input_delay }}</div>
-									{% endif %}
+									{% if error_input_delay %}<div class="text-danger">{{ error_input_delay }}</div>{% endif %}
 									<div class="help-block text-muted">{{ help_input_delay }}</div>
                 </div>
               </div>
 
 							<div class="form-group required">
-                <label class="col-sm-2 control-label" for="input-input-min-chars">{{ entry_input_min_chars }}</label>
+                <label for="input-input-min-chars" class="col-sm-2 control-label">{{ entry_input_min_chars }}</label>
                 <div class="col-sm-10">
                   <input type="text" name="module_ps_live_search_input_min_chars" value="{{ module_ps_live_search_input_min_chars }}" placeholder="{{ entry_input_min_chars }}" id="input-input-min-chars" class="form-control" />
-									{% if error_input_min_chars %}
-									<div class="text-danger">{{ error_input_min_chars }}</div>
-									{% endif %}
+									{% if error_input_min_chars %}<div class="text-danger">{{ error_input_min_chars }}</div>{% endif %}
 									<div class="help-block text-muted">{{ help_input_min_chars }}</div>
                 </div>
               </div>
@@ -78,7 +74,7 @@
 						<div class="tab-pane" id="tab-products">
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-product-status">{{ entry_product_status }}</label>
+								<label for="input-product-status" class="col-sm-2 control-label">{{ entry_product_status }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_product_status" id="input-product-status" class="form-control">
 										{% if module_ps_live_search_product_status %}
@@ -93,7 +89,7 @@
 							</div>
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-product-description">{{ entry_product_description }}</label>
+								<label for="input-product-description" class="col-sm-2 control-label">{{ entry_product_description }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_product_description" id="input-product-description" class="form-control">
 										{% if module_ps_live_search_product_description %}
@@ -108,18 +104,16 @@
 							</div>
 
 							<div class="form-group required">
-                <label class="col-sm-2 control-label" for="input-product-description-length">{{ entry_product_description_length }}</label>
+                <label for="input-product-description-length" class="col-sm-2 control-label">{{ entry_product_description_length }}</label>
                 <div class="col-sm-10">
                   <input type="text" name="module_ps_live_search_product_description_length" value="{{ module_ps_live_search_product_description_length }}" placeholder="{{ entry_product_description_length }}" id="input-product-description-length" class="form-control" />
-									{% if error_product_description_length %}
-									<div class="text-danger">{{ error_product_description_length }}</div>
-									{% endif %}
+									{% if error_product_description_length %}<div class="text-danger">{{ error_product_description_length }}</div>{% endif %}
 									<div class="help-block text-muted">{{ help_product_description_length }}</div>
                 </div>
               </div>
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-product-image">{{ entry_product_image }}</label>
+								<label for="input-product-image" class="col-sm-2 control-label">{{ entry_product_image }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_product_image" id="input-product-image" class="form-control">
 										{% if module_ps_live_search_product_image %}
@@ -134,20 +128,16 @@
 							</div>
 
 							<div class="form-group required">
-								<label class="col-sm-2 control-label" for="input-product-image-width">{{ entry_product_image_size }}</label>
+								<label for="input-product-image-width" class="col-sm-2 control-label">{{ entry_product_image_size }}</label>
 								<div class="col-sm-10">
 									<div class="row">
 										<div class="col-sm-6">
 											<input type="text" name="module_ps_live_search_product_image_width" value="{{ module_ps_live_search_product_image_width }}" placeholder="{{ entry_width }}" id="input-product-image-width" class="form-control" />
-											{% if error_product_image_width %}
-											<div class="text-danger">{{ error_product_image_width }}</div>
-											{% endif %}
+											{% if error_product_image_width %}<div class="text-danger">{{ error_product_image_width }}</div>{% endif %}
 										</div>
 										<div class="col-sm-6">
-											<input type="text" name="module_ps_live_search_product_image_height" value="{{ module_ps_live_search_product_image_height }}" placeholder="{{ entry_height }}" class="form-control" />
-											{% if error_product_image_height %}
-											<div class="text-danger">{{ error_product_image_height }}</div>
-											{% endif %}
+											<input type="text" name="module_ps_live_search_product_image_height" value="{{ module_ps_live_search_product_image_height }}" placeholder="{{ entry_height }}" id="input-product-image-height" class="form-control" />
+											{% if error_product_image_height %}<div class="text-danger">{{ error_product_image_height }}</div>{% endif %}
 										</div>
 									</div>
 								</div>
@@ -157,7 +147,7 @@
 						<div class="tab-pane" id="tab-categories">
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-category-status">{{ entry_category_status }}</label>
+								<label for="input-category-status" class="col-sm-2 control-label" for="input-category-status">{{ entry_category_status }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_category_status" id="input-category-status" disabled class="form-control">
 										{% if module_ps_live_search_category_status %}
@@ -172,7 +162,7 @@
 							</div>
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-category-image">{{ entry_category_image }}</label>
+								<label for="input-category-image" class="col-sm-2 control-label">{{ entry_category_image }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_category_image" id="input-category-image" disabled class="form-control">
 										{% if module_ps_live_search_category_image %}
@@ -187,20 +177,16 @@
 							</div>
 
 							<div class="form-group required">
-								<label class="col-sm-2 control-label" for="input-category-image-width">{{ entry_category_image_size }}</label>
+								<label for="input-category-image-width" class="col-sm-2 control-label">{{ entry_category_image_size }}</label>
 								<div class="col-sm-10">
 									<div class="row">
 										<div class="col-sm-6">
 											<input type="text" name="module_ps_live_search_category_image_width" value="{{ module_ps_live_search_category_image_width }}" placeholder="{{ entry_width }}" id="input-category-image-width" disabled class="form-control" />
-											{% if error_category_image_width %}
-											<div class="text-danger">{{ error_category_image_width }}</div>
-											{% endif %}
+											{% if error_category_image_width %}<div class="text-danger">{{ error_category_image_width }}</div>{% endif %}
 										</div>
 										<div class="col-sm-6">
-											<input type="text" name="module_ps_live_search_category_image_height" value="{{ module_ps_live_search_category_image_height }}" placeholder="{{ entry_height }}" disabled class="form-control" />
-											{% if error_category_image_height %}
-											<div class="text-danger">{{ error_category_image_height }}</div>
-											{% endif %}
+											<input type="text" name="module_ps_live_search_category_image_height" value="{{ module_ps_live_search_category_image_height }}" placeholder="{{ entry_height }}" id="input-category-image-height" disabled class="form-control" />
+											{% if error_category_image_height %}<div class="text-danger">{{ error_category_image_height }}</div>{% endif %}
 										</div>
 									</div>
 								</div>
@@ -210,7 +196,7 @@
 						<div class="tab-pane" id="tab-manufacturers">
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-manufacturer-status">{{ entry_manufacturer_status }}</label>
+								<label for="input-manufacturer-status" class="col-sm-2 control-label">{{ entry_manufacturer_status }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_manufacturer_status" id="input-manufacturer-status" disabled class="form-control">
 										{% if module_ps_live_search_manufacturer_status %}
@@ -225,7 +211,7 @@
 							</div>
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-manufacturer-image">{{ entry_manufacturer_image }}</label>
+								<label for="input-manufacturer-image" class="col-sm-2 control-label">{{ entry_manufacturer_image }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_manufacturer_image" id="input-manufacturer-image" disabled class="form-control">
 										{% if module_ps_live_search_manufacturer_image %}
@@ -240,20 +226,16 @@
 							</div>
 
 							<div class="form-group required">
-								<label class="col-sm-2 control-label" for="input-manufacturer-image-width">{{ entry_manufacturer_image_size }}</label>
+								<label for="input-manufacturer-image-width" class="col-sm-2 control-label">{{ entry_manufacturer_image_size }}</label>
 								<div class="col-sm-10">
 									<div class="row">
 										<div class="col-sm-6">
 											<input type="text" name="module_ps_live_search_manufacturer_image_width" value="{{ module_ps_live_search_manufacturer_image_width }}" placeholder="{{ entry_width }}" id="input-manufacturer-image-width" disabled class="form-control" />
-											{% if error_manufacturer_image_width %}
-											<div class="text-danger">{{ error_manufacturer_image_width }}</div>
-											{% endif %}
+											{% if error_manufacturer_image_width %}<div class="text-danger">{{ error_manufacturer_image_width }}</div>{% endif %}
 										</div>
 										<div class="col-sm-6">
-											<input type="text" name="module_ps_live_search_manufacturer_image_height" value="{{ module_ps_live_search_manufacturer_image_height }}" placeholder="{{ entry_height }}" disabled class="form-control" />
-											{% if error_manufacturer_image_height %}
-											<div class="text-danger">{{ error_manufacturer_image_height }}</div>
-											{% endif %}
+											<input type="text" name="module_ps_live_search_manufacturer_image_height" value="{{ module_ps_live_search_manufacturer_image_height }}" placeholder="{{ entry_height }}" id="input-manufacturer-image-height" disabled class="form-control" />
+											{% if error_manufacturer_image_height %}<div class="text-danger">{{ error_manufacturer_image_height }}</div>{% endif %}
 										</div>
 									</div>
 								</div>
@@ -263,7 +245,7 @@
 						<div class="tab-pane" id="tab-informations">
 
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="input-information-status">{{ entry_information_status }}</label>
+								<label for="input-information-status" class="col-sm-2 control-label">{{ entry_information_status }}</label>
 								<div class="col-sm-10">
 									<select name="module_ps_live_search_information_status" id="input-information-status" disabled class="form-control">
 										{% if module_ps_live_search_information_status %}
