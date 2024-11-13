@@ -12,17 +12,25 @@ code package and also available on the project page: https://github.com/playfuls
     <link>https://github.com/playfulsparkle/oc3_live_search.git</link>
     <file path="catalog/controller/common/header.php">
         <operation>
-            <search><![CDATA[$this->config->get('config_name');]]></search>
+            <search><![CDATA[$this->document->getScripts('header');]]></search>
             <add position="after"><![CDATA[
-                $script = 'catalog/view/javascript/ps_live_search.js';
-                $style = 'catalog/view/theme/default/stylesheet/ps_live_search.css';
+        $ps_live_search_script = 'catalog/view/javascript/ps_live_search.js';
 
-                $data['scripts'][$script] = $script;
-                $data['styles'][$style] = array(
-                    'href' => $style,
-                    'rel' => 'stylesheet',
-                    'media' => 'screen'
-                );
+        $data['scripts'][$ps_live_search_script] = $ps_live_search_script;
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/common/header.php">
+        <operation>
+            <search><![CDATA[$this->document->getStyles();]]></search>
+            <add position="after"><![CDATA[
+        $ps_live_search_style = 'catalog/view/theme/default/stylesheet/ps_live_search.css';
+
+        $data['styles'][$ps_live_search_style] = array(
+            'href' => $ps_live_search_style,
+            'rel' => 'stylesheet',
+            'media' => 'screen'
+        );
             ]]></add>
         </operation>
     </file>
