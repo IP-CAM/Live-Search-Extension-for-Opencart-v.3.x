@@ -23,7 +23,20 @@ class ModelExtensionModulePsLiveSearch extends Model
 
         $query = array();
 
-        $query[] = "pd.`name` LIKE '" . $this->db->escape($search . '%') . "'";
+        $words = explode(' ', trim(preg_replace('/\s+/', ' ', $search)));
+
+        $words = array_filter($words);
+
+        foreach ($words as $word) {
+            if (utf8_strlen($word) < 2) {
+                continue;
+            }
+
+            $query[] = "`pd`.`name` LIKE '" . $this->db->escape('%' . $word . '%') . "'";
+
+            $query[] = "pd.`tag` LIKE '" . $this->db->escape('%' . $word . '%') . "'";
+        }
+
         $query[] = "pd.`tag` LIKE '" . $this->db->escape('%' . $search . '%') . "'";
         $query[] = "LCASE(`p`.`model`) = '" . $this->db->escape(utf8_strtolower($search)) . "'";
         $query[] = "LCASE(`p`.`sku`) = '" . $this->db->escape(utf8_strtolower($search)) . "'";
