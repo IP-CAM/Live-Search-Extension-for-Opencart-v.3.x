@@ -140,6 +140,12 @@ class ControllerExtensionModulePsLiveSearch extends Controller
             $data['module_ps_live_search_product_image_height'] = (int) $this->config->get('module_ps_live_search_product_image_height');
         }
 
+        if (isset($this->request->post['module_ps_live_search_product_price'])) {
+            $data['module_ps_live_search_product_price'] = (bool) $this->request->post['module_ps_live_search_product_price'];
+        } else {
+            $data['module_ps_live_search_product_price'] = (bool) $this->config->get('module_ps_live_search_product_price');
+        }
+
         $data['text_contact'] = sprintf($this->language->get('text_contact'), self::EXTENSION_EMAIL, self::EXTENSION_EMAIL, self::EXTENSION_DOC);
 
         $data['header'] = $this->load->controller('common/header');

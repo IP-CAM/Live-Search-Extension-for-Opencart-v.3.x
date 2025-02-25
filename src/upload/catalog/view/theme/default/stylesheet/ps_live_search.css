@@ -57,6 +57,10 @@
     width: 49%;
 }
 
+.ps-live-search-list .ps-live-search-item .info.full-width {
+    width: 66%;
+}
+
 .ps-live-search-list .ps-live-search-item .prices {
     float: right;
     width: 17%;

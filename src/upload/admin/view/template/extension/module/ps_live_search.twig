@@ -143,6 +143,21 @@
 								</div>
 							</div>
 
+							<div class="form-group">
+								<label for="input-product-price" class="col-sm-2 control-label">{{ entry_product_price }}</label>
+								<div class="col-sm-10">
+									<select name="module_ps_live_search_product_price" id="input-product-price" class="form-control">
+										{% if module_ps_live_search_product_price %}
+										<option value="1" selected="selected">{{ text_enabled }}</option>
+										<option value="0">{{ text_disabled }}</option>
+										{% else %}
+										<option value="1">{{ text_enabled }}</option>
+										<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+
 						</div>
 						<div class="tab-pane" id="tab-categories">
 

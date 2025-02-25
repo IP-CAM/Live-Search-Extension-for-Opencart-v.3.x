@@ -144,18 +144,20 @@
               if (product.thumb) {
                 html += '<span class="thumb"><img src="' + product.thumb + '" alt="' + product.name + '" width="' + product.thumb_width + '" height="' + product.thumb_height + '"></span>';
               }
-              html += '<span class="info"><strong class="name">' + product.name + '</strong>';
+              html += '<span class="info' + (json.products.show_price ? '' : ' full-width') + '"><strong class="name">' + product.name + '</strong>';
               if (product.description) {
                 html += '<span class="description">' + product.description + '</span>';
               }
-              html += '</span><span class="prices">';
-              if (!product.special) {
-                html += '<span class="price-new">' + product.price + '</span>';
-              } else {
-                html += '<span class="price-old">' + product.price + '</span>';
-                html += '<span class="price-new">' + product.special + '</span>';
+              if (json.products.show_price) {
+                html += '</span><span class="prices">';
+                if (!product.special) {
+                  html += '<span class="price-new">' + product.price + '</span>';
+                } else {
+                  html += '<span class="price-old">' + product.price + '</span>';
+                  html += '<span class="price-new">' + product.special + '</span>';
+                }
+                html += '<span class="price-tax">' + product.tax + '</span></span></a></li>';
               }
-              html += '<span class="price-tax">' + product.tax + '</span></span></a></li>';
             }
           } else {
             html += '<li><span class="ps-live-search-item-text">' + this.translations.text_no_results + '</span></li>';
