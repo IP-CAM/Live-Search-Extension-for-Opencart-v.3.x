@@ -5,7 +5,7 @@ labels: []
 assignees:
   - zsoltoroszlany82
 body:
-   - type: textarea
+  - type: textarea
     attributes:
       label: Describe the Bug
       description: Clearly describe what is going wrong.
@@ -47,7 +47,7 @@ body:
     validations:
       required: false
 
- - type: input
+  - type: input
     attributes:
       label: Extension Version
       description: What version of the extension are you using?
