@@ -111,7 +111,8 @@
     border-bottom: 1px solid #e9ecef;
 }
 
-.ps-live-search-list .ps-live-search-subheader > strong {
+.ps-live-search-list .ps-live-search-subheader > output {
+    font-weight: bold;
     color: #212529;
 }
 

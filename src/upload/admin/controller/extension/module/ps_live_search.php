@@ -204,7 +204,8 @@ class ControllerExtensionModulePsLiveSearch extends Controller
             'module_ps_live_search_product_description_length' => 100,
             'module_ps_live_search_product_image' => 1,
             'module_ps_live_search_product_image_width' => 64,
-            'module_ps_live_search_product_image_height' => 64
+            'module_ps_live_search_product_image_height' => 64,
+            'module_ps_live_search_product_price' => 1,
         );
 
         $this->model_setting_setting->editSetting('module_ps_live_search', $data);
