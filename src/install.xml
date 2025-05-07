@@ -7,7 +7,7 @@ code package and also available on the project page: https://github.com/playfuls
 <modification>
     <name>Playful Sparkle - Live Search</name>
     <code>ps_live_search</code>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <author>Playful Sparkle</author>
     <link>https://github.com/playfulsparkle/oc3_live_search.git</link>
     <file path="catalog/controller/common/header.php">
@@ -71,7 +71,7 @@ code package and also available on the project page: https://github.com/playfuls
             <ul id="ps-live-search" class="ps-live-search-list"></ul>
             <script>
                 $('#ps-live-search-input').pslivesearch({
-                    'source': function (request, response) {
+                    source: function (request, response) {
                         $.ajax({
                             url: 'index.php?route=extension/module/ps_live_search/autocomplete&search=' + encodeURIComponent(request),
                             dataType: 'json',
@@ -81,18 +81,15 @@ code package and also available on the project page: https://github.com/playfuls
                             }
                         });
                     },
-                    'select': function (item) {
-                        $('#ps-live-search-input').val(request);
+                    translations: {
+                        heading_products: '{{ heading_products }}',
+                        text_showing_results: '{{ text_showing_results }}',
+                        text_all_product_results: '{{ text_all_product_results }}',
+                        text_no_results: '{{ text_no_results }}',
                     },
-                    'translations': {
-                        'heading_products': '{{ heading_products }}',
-                        'text_showing_results': '{{ text_showing_results }}',
-                        'text_all_product_results': '{{ text_all_product_results }}',
-                        'text_no_results': '{{ text_no_results }}',
-                    },
-                    'options': {
-                        'input_delay': {{ input_delay | default(100) }},
-                        'input_min_chars': {{ input_min_chars | default(1) }}
+                    options: {
+                        input_delay: {{ input_delay | default(100) }},
+                        input_min_chars: {{ input_min_chars | default(1) }}
                     }
                 });
             </script>

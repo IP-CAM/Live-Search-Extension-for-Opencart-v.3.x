@@ -10,7 +10,6 @@ class ControllerExtensionModulePsLiveSearch extends Controller
         }
 
         $json = array(
-            'query' => html_entity_decode($search, ENT_QUOTES, 'UTF-8'),
             'products' => array(
                 'status' => (bool) $this->config->get('module_ps_live_search_product_status'),
                 'show_price' => (bool) $this->config->get('module_ps_live_search_product_price'),
