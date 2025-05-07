@@ -9,7 +9,7 @@ body:
     attributes:
       label: Describe the Bug
       description: Clearly describe what is going wrong.
-      placeholder: e.g. Error appears when saving a new product in the admin panel.
+      placeholder: e.g. Error appears when saving extension settings.
     validations:
       required: true
 
@@ -51,7 +51,7 @@ body:
     attributes:
       label: Extension Version
       description: What version of the extension are you using?
-      placeholder: e.g. 1.3.2
+      placeholder: e.g. 1.0.0
     validations:
       required: true
 
@@ -91,11 +91,12 @@ body:
   - type: textarea
     attributes:
       label: Environment Details
-      description: Web server, PHP/MySQL version, theme, and other relevant details.
+      description: Web server, PHP/MySQL version, browser, theme, and other relevant details.
       placeholder: |
         - Web Server: Apache 2.4
         - PHP Version: 7.4
         - MySQL Version: 5.7
-        - Theme: Journal3
+        - Browser: Chrome 92
+        - Theme: OpenCart Default
     validations:
       required: true
